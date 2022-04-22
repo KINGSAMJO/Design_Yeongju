@@ -10,19 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project_220402">
         <activity
-            android:name=".semina2.SampleRecyclerView"
+            android:name=".seminar1_including_hw.RepositoryRecyclerView"
             android:exported="true" />
         <activity
-            android:name=".semina2.FragTestActivity"
+            android:name=".seminar1_including_hw.FollowerRecyclerView"
             android:exported="true" />
         <activity
-            android:name=".semina1.HomeActivity"
+            android:name=".seminar2.FragTestActivity"
             android:exported="true" />
         <activity
-            android:name=".semina1.SignUpActivity"
+            android:name=".seminar2.SampleRecyclerView"
             android:exported="true" />
         <activity
-            android:name=".semina1.SignInActivity"
+            android:name=".seminar1_including_hw.HomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".seminar1_including_hw.SignUpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".seminar1_including_hw.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
