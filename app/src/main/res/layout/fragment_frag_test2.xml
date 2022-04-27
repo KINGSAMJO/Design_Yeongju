@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DD80A8"
-    tools:context=".semina2.FragTest1">
+    tools:context=".seminar2.FragTest1">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

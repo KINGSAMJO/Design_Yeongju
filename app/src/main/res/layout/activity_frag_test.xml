@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".semina2.FragTestActivity">
+    tools:context=".seminar2.FragTestActivity">
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btnFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="button"
@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/btnFragment"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
