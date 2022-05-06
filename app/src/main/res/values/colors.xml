@@ -7,4 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="box_gray">#F6F5F9</color>
+    <color name="border_gray">#EFEFEF</color>
+    <color name="sopt_main_purple">#8040FF</color>
+    <color name="sopt_sub_purple">#BC9AFF</color>
+    <color name="thesopt_deepgray">#444444</color>
+    <color name="thesopt_lightgray">#DFDAED</color>
+    <color name="light_gray">#8F8F8F</color>
+    <color name="medium_gray">#8F9090</color>
+    <color name="text_gray">#B5B5B5</color>
+    <color name="sopt_white_purple">#FAF8FF</color>
+    <color name="sopt_black">#333333</color>
 </resources>
