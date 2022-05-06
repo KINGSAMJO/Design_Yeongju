@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".ProfileFragment">
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -11,7 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rect"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile"
@@ -21,7 +23,9 @@
         android:src="@drawable/img_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/sopt_main_purple"/>
 
     <TextView
         android:id="@+id/user_name"
@@ -65,36 +69,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/instagram" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_follower"
-        android:layout_width="185dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="13dp"
-        android:background="@drawable/et_color"
-        android:fontFamily="@font/notosanskr_regular"
-        android:includeFontPadding="false"
-        android:paddingVertical="13dp"
-        android:text="@string/follower"
-        android:textColor="@drawable/text_selector"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/shape" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_follower"
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/btn_selector"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:paddingVertical="13dp"
+            android:text="@string/follower"
+            android:textColor="@drawable/text_selector"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shape" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_repository"
-        android:layout_width="185dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="11dp"
-        android:background="@drawable/et_color"
-        android:fontFamily="@font/notosanskr_regular"
-        android:includeFontPadding="false"
-        android:paddingVertical="13dp"
-        android:text="@string/repository"
-        android:textColor="@drawable/text_selector"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/shape" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_repository"
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="11dp"
+            android:background="@drawable/btn_selector"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:paddingVertical="13dp"
+            android:text="@string/repository"
+            android:textColor="@drawable/text_selector"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shape" />
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcv_profile"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_follower">
+    </androidx.fragment.app.FragmentContainerView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

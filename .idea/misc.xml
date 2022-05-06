@@ -6,6 +6,7 @@
         <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/drawable/border.xml" value="0.26197916666666665" />
         <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/drawable/box.xml" value="0.26197916666666665" />
         <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/drawable/box2.xml" value="0.24351851851851852" />
+        <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/drawable/btn_selector.xml" value="0.265625" />
         <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/drawable/cursor.xml" value="0.265625" />
         <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/drawable/et_color.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/drawable/etcolor.xml" value="0.20364583333333333" />
@@ -13,6 +14,7 @@
         <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/drawable/ic_home.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/drawable/ic_profile.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/drawable/rect.xml" value="0.265625" />
+        <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/drawable/stroke_bottom.xml" value="0.265625" />
         <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/drawable/text_selector.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/layout/activity_main.xml" value="0.24947916666666667" />
@@ -24,8 +26,8 @@
         <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/layout/fragment_follower.xml" value="0.4" />
         <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
-        <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/layout/fragment_repository.xml" value="0.264" />
-        <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/layout/repository_list.xml" value="0.72" />
+        <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/layout/fragment_repository.xml" value="0.536" />
+        <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/layout/repository_list.xml" value="0.5456885456885456" />
         <entry key="..\:/Users/samsung/Desktop/Assignment/app/src/main/res/menu/menu.xml" value="0.2" />
       </map>
     </option>

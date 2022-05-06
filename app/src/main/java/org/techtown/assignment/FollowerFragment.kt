@@ -32,12 +32,14 @@ class FollowerFragment : Fragment() {
 
         followerAdapter.followerList.addAll(
             listOf(
-                FollowerData("이영주", "안드로이드"),
-                FollowerData("김예현", "기획"),
-                FollowerData("권용민", "안드로이드"),
-                FollowerData("한수아", "IOS"),
-                FollowerData("이종하", "기획"),
-                FollowerData("권세훈", "서버")
+                FollowerData("이영주", "안드로이드 개발자"),
+                FollowerData("이영주", "안드로이드 개발자"),
+                FollowerData("이영주", "안드로이드 개발자"),
+                FollowerData("이영주", "안드로이드 개발자"),
+                FollowerData("이영주", "안드로이드 개발자"),
+                FollowerData("이영주", "안드로이드 개발자"),
+                FollowerData("이영주", "안드로이드 개발자"),
+                FollowerData("이영주", "안드로이드 개발자")
             )
         )
         followerAdapter.notifyDataSetChanged()

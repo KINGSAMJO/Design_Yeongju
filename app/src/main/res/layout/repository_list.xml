@@ -3,16 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="20dp"
-    android:background="@drawable/border"
-    android:padding="5dp">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/tv_repository_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="24dp"
         android:ellipsize="end"
         android:fontFamily="@font/notosanskr_bold"
         android:includeFontPadding="false"
@@ -27,15 +25,29 @@
         android:id="@+id/tv_repository_part"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="24dp"
         android:ellipsize="end"
         android:fontFamily="@font/notosanskr_regular"
         android:includeFontPadding="false"
         android:maxLines="1"
         android:textColor="@color/thesopt_deepgray"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/tv_repository_name"
         app:layout_constraintTop_toBottomOf="@id/tv_repository_name"
         tools:text="뫄뫄 파트 과제" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/line_repository"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_repository_part" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
