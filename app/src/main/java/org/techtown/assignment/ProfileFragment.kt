@@ -25,19 +25,20 @@ class ProfileFragment : Fragment() {
     private fun initTransactionEvent() {
         val fragment1 = FollowerFragment()
         val fragment2 = RepositoryFragment()
+        binding.btnFollower.isSelected = true
 
         childFragmentManager.beginTransaction().add(R.id.fcv_profile, fragment1).commit()
 
         binding.btnFollower.setOnClickListener {
-            btn_follower?.isSelected = btn_follower?.isSelected != true
-            //조건을 어떻게 달아줄까..
+            binding.btnFollower.isSelected = true
+            binding.btnRepository.isSelected = false
             val transaction = childFragmentManager.beginTransaction()
             transaction.replace(R.id.fcv_profile, fragment1)
             transaction.commit()
         }
         binding.btnRepository.setOnClickListener {
-            btn_repository?.isSelected = btn_repository?.isSelected != true
-            //조건을 어떻게 달아줄까..
+            binding.btnRepository.isSelected = true
+            binding.btnFollower.isSelected = false
             val transaction = childFragmentManager.beginTransaction()
             transaction.replace(R.id.fcv_profile, fragment2)
             transaction.commit()

@@ -2,9 +2,13 @@ package org.techtown.assignment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import org.techtown.assignment.databinding.ActivitySignupBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
@@ -29,12 +33,38 @@ class SignUpActivity : AppCompatActivity() {
             emptyCheck = name.isEmpty() || id.isEmpty() || pwd.isEmpty()
 
             if (!emptyCheck) {
-                Toast.makeText(this, "회원가입 완료!", Toast.LENGTH_SHORT).show()
-                setResult(RESULT_OK, intent)
-                finish()
+                joinNetwork()
+
             } else {
                 Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun joinNetwork() {
+        val requestSignUp = RequestSignUp(
+            name = binding.etName.text.toString(),
+            id = binding.etJoinid.text.toString(),
+            password = binding.etJoinpwd.text.toString()
+        )
+
+        val call: Call<ResponseSignUp> = ServiceCreator.soptService.postSignUp(requestSignUp)
+
+        call.enqueue(object : Callback<ResponseSignUp> {
+            override fun onResponse(
+                call: Call<ResponseSignUp>,
+                response: Response<ResponseSignUp>
+            ) {
+                if (response.isSuccessful) {
+                    val data = response.body()?.data
+                    Toast.makeText(this@SignUpActivity, "회원가입 완료!", Toast.LENGTH_SHORT).show()
+                    finish()
+                } else Toast.makeText(this@SignUpActivity, "회원가입 실패!", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onFailure(call: Call<ResponseSignUp>, t: Throwable) {
+                Log.e("NetworkTest", "Error:$t")
+            }
+        })
     }
 }
