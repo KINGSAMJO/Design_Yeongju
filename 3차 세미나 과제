@@ -1,0 +1,256 @@
+### 3차 세미나 과제 리드미
+
+파일명, 변수명 등 통일성이 없는 것 같아서 처음부터 다시 만들었습니다.
+기존 코드와 변경된 것이 많습니다.
+
+
+## 1. fragment_profile.xml
+
+```xml
+...
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shape"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/img_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/sopt_main_purple"/>
+
+...
+
+ <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_follower"
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/btn_selector"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:paddingVertical="13dp"
+            android:text="@string/follower"
+            android:textColor="@drawable/text_selector"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shape" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_repository"
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="11dp"
+            android:background="@drawable/btn_selector"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:paddingVertical="13dp"
+            android:text="@string/repository"
+            android:textColor="@drawable/text_selector"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shape" />
+```
+
+기존의 activity_home을 fragment로 변경해주었습니다.
+
+com.google.android.material.imageview.ShapeableImageView 를 통해 프로필 배경색을 표현해주었고
+
+de.hdodenhof.circleimageview.CircleImageView 를 통해 프로필 사진을 원으로 만들어주었습니다.
+
+그리고 selector를 통해 클릭시에 버튼 색이 변경되는 것을 표현하려고 했는데 그냥 Button으로 하면 색상 변경이 되지 않아서
+
+androidx.appcompat.widget.AppCompatButton을 사용하였습니다.
+
+구글에 검색해보니 values -> themes -> themes.xml에서 코드를 수정하라고 했는데 그렇게 되면 모든 activity와 fragment의 흰/검이 반전되어서 이 방식은 사용하지 않았습니다.
+
+
+그리고 fontFamily를 통해 폰트를 적용해주었습니다.
+
+font 자체에 기본 padding값이 있는데 이를 android:includeFontPadding="false"를 통해 없애주었습니다.
+
+
+### 2. activity_signin.xml
+
+```xml
+...
+ <EditText
+                android:id="@+id/et_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/et_selector"
+                android:ems="10"
+                android:fontFamily="@font/notosanskr_regular"
+                android:hint="@string/id_hint"
+                android:includeFontPadding="false"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:paddingVertical="13dp"
+                android:paddingStart="16dp"
+                android:textCursorDrawable="@drawable/cursor"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_id"
+...
+```
+
+입력창에 정보를 기입하면 테두리가 생기도록 selector를 사용했습니다.
+
+또한 paddingVertical과 paddingStart를 이용해 내부 콘텐츠와 뷰에 여백을 줬습니다.
+
+그리고 커서 색상을 바꾸기 위해 textCursorDrawable를 사용했습니다.
+
+
+
+### 3. ProfileFragment.kt
+
+```xml
+...
+private fun initTransactionEvent() {
+        val fragment1 = FollowerFragment()
+        val fragment2 = RepositoryFragment()
+        binding.btnFollower.isSelected = true
+
+        childFragmentManager.beginTransaction().add(R.id.fcv_profile, fragment1).commit()
+
+        binding.btnFollower.setOnClickListener {
+            binding.btnFollower.isSelected = true
+            binding.btnRepository.isSelected = false
+            val transaction = childFragmentManager.beginTransaction()
+            transaction.replace(R.id.fcv_profile, fragment1)
+            .commit()
+        }
+        binding.btnRepository.setOnClickListener {
+            binding.btnRepository.isSelected = true
+            binding.btnFollower.isSelected = false
+            val transaction = childFragmentManager.beginTransaction()
+            transaction.replace(R.id.fcv_profile, fragment2)
+            .commit()
+        }
+
+    }
+...
+```
+
+팔로우 버튼과 레포지토리 버튼을 눌렀을 때 selector를 적용해주었습니다.
+
+기본값으로 팔로워 버튼이 선택되어있고, 팔로워 버튼을 누르면 팔로워가 true, 레포지토리가 false, 반대의 경우에는 반대입니다.
+
+아래는 selector의 코드입니다.
+
+## 3-1. btn_selector.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="false">
+        <shape>
+            <solid android:color="@color/sopt_white_purple"/>
+            <corners
+                android:radius="5sp"/>
+        </shape>
+    </item>
+
+    <item android:state_selected="true" >
+        <shape>
+            <solid android:color="@android:color/transparent"/>
+            <stroke
+                android:width="1dp"
+                android:color="@color/sopt_main_purple"/>
+            <corners android:radius="5dp" />
+        </shape>
+    </item>
+</selector>
+
+```
+
+
+### 4. activity_home.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bnv_main"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnv_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:itemIconTint="@color/selector_bottom_navi"
+        app:itemRippleColor="@color/sopt_main_purple"
+        app:itemTextColor="@color/selector_bottom_navi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+```
+
+아래 navigation을 표현하기 위해 com.google.android.material.bottomnavigation.BottomNavigationView 를 사용해주었습니다.
+
+다음은  app:menu="@menu/menu"에 대한 내용입니다.
+
+## 4-1. menu.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/profile"/>
+
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home"/>
+
+    <item
+        android:id="@+id/menu_camera"
+        android:icon="@drawable/ic_camera"
+        android:title="@string/camera"/>
+</menu>
+```
+
+
+
+## 새로 알게된 점
+
+1. Fragment안에 Fragment 넣기
+
+2. selector 사용하기
+
+3. 사진을 원형으로 자르기
+
+
+## 실행 화면
+
+
