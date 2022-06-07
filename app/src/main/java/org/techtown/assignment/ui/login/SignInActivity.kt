@@ -3,17 +3,21 @@ package org.techtown.assignment.ui.login
 import android.content.Intent
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModel
 import org.techtown.assignment.R
 import org.techtown.assignment.databinding.ActivitySigninBinding
 import org.techtown.assignment.ui.HomeActivity
 import org.techtown.assignment.ui.login.model.RequestSignIn
 import org.techtown.assignment.ui.login.model.ServiceCreator
+import org.techtown.assignment.ui.login.viewmodel.SignViewModel
 import org.techtown.assignment.util.BaseActivity
 import org.techtown.assignment.util.enqueueUtil
 import org.techtown.assignment.util.showToast
 
-class SignInActivity : BaseActivity<ActivitySigninBinding>(R.layout.activity_signin) {
+class SignInActivity : BaseActivity<ActivitySigninBinding, SignViewModel>(R.layout.activity_signin) {
     private var emptyCheck = false
+    override val viewModel: SignViewModel = SignViewModel()
 
     private val resultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -26,6 +30,7 @@ class SignInActivity : BaseActivity<ActivitySigninBinding>(R.layout.activity_sig
         }
 
     override fun init() {
+        binding.viewmodel = viewModel
         binding.btnLogin.setOnClickListener {
             val id = binding.etId.text.toString()
             val pwd = binding.etPwd.text.toString()
