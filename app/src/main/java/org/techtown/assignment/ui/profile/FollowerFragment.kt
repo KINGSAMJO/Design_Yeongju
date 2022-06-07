@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import org.techtown.assignment.ui.profile.adapter.FollowerAdapter
-import org.techtown.assignment.ui.profile.data.FollowerData
+import org.techtown.assignment.ui.profile.model.FollowerAdapter
+import org.techtown.assignment.ui.profile.model.FollowerData
 import org.techtown.assignment.databinding.FragmentFollowerBinding
 
 class FollowerFragment : Fragment() {

@@ -1,4 +1,4 @@
-package org.techtown.assignment.ui.profile.data
+package org.techtown.assignment.ui.profile.model
 
 data class FollowerData(
     val name: String,

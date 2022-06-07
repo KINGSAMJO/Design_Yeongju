@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import org.techtown.assignment.ui.profile.adapter.RepositoryAdapter
-import org.techtown.assignment.ui.profile.data.RepositoryData
+import org.techtown.assignment.ui.profile.model.RepositoryAdapter
+import org.techtown.assignment.ui.profile.model.RepositoryData
 import org.techtown.assignment.databinding.FragmentRepositoryBinding
 
 class RepositoryFragment : Fragment() {

@@ -1,9 +1,8 @@
-package org.techtown.assignment.ui.profile.adapter
+package org.techtown.assignment.ui.profile.model
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import org.techtown.assignment.ui.profile.data.RepositoryData
 import org.techtown.assignment.databinding.RepositoryListBinding
 
 
