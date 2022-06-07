@@ -3,21 +3,19 @@ package org.techtown.assignment.ui.login
 import android.content.Intent
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
-import androidx.lifecycle.ViewModel
 import org.techtown.assignment.R
 import org.techtown.assignment.databinding.ActivitySigninBinding
 import org.techtown.assignment.ui.HomeActivity
 import org.techtown.assignment.ui.login.model.RequestSignIn
 import org.techtown.assignment.ui.login.model.ServiceCreator
-import org.techtown.assignment.ui.login.viewmodel.SignViewModel
+import org.techtown.assignment.ui.login.viewmodel.SignInViewModel
 import org.techtown.assignment.util.BaseActivity
 import org.techtown.assignment.util.enqueueUtil
 import org.techtown.assignment.util.showToast
 
-class SignInActivity : BaseActivity<ActivitySigninBinding, SignViewModel>(R.layout.activity_signin) {
+class SignInActivity : BaseActivity<ActivitySigninBinding, SignInViewModel>(R.layout.activity_signin) {
     private var emptyCheck = false
-    override val viewModel: SignViewModel = SignViewModel()
+    override val viewModel: SignInViewModel = SignInViewModel()
 
     private val resultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -39,7 +37,7 @@ class SignInActivity : BaseActivity<ActivitySigninBinding, SignViewModel>(R.layo
 
             if (!emptyCheck) {
                 loginNetwork()
-            } else Toast.makeText(this, "정보를 모두 기입해주세요.", Toast.LENGTH_SHORT).show()
+            } else showToast("정보를 모두 기입해주세요.")
         }
 
         binding.btnJoin.setOnClickListener {
