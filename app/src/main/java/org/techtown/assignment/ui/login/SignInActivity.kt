@@ -2,23 +2,22 @@ package org.techtown.assignment.ui.login
 
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
-import org.techtown.assignment.ui.login.model.RequestSignIn
-import org.techtown.assignment.ui.login.model.ServiceCreator
+import org.techtown.assignment.R
 import org.techtown.assignment.databinding.ActivitySigninBinding
 import org.techtown.assignment.ui.HomeActivity
+import org.techtown.assignment.ui.login.model.RequestSignIn
+import org.techtown.assignment.ui.login.model.ServiceCreator
+import org.techtown.assignment.util.BaseActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SignInActivity : AppCompatActivity() {
+class SignInActivity : BaseActivity<ActivitySigninBinding>(R.layout.activity_signin) {
     private var emptyCheck = false
 
-    private lateinit var binding: ActivitySigninBinding
     private val resultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == RESULT_OK) {
@@ -28,17 +27,8 @@ class SignInActivity : AppCompatActivity() {
                 binding.etPwd.setText(userPwd)
             }
         }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        binding = ActivitySigninBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        initEvent()
-    }
-
-
-    private fun initEvent() {
+    
+    override fun init() {
         binding.btnLogin.setOnClickListener {
             val id = binding.etId.text.toString()
             val pwd = binding.etPwd.text.toString()
@@ -59,16 +49,17 @@ class SignInActivity : AppCompatActivity() {
     fun <ResponseType> Call<ResponseType>.enqueueUtil(
         onSuccess: (ResponseType) -> Unit,
         onError: ((stateCode: Int) -> Unit)? = null
-    ){
-        this.enqueue(object: Callback<ResponseType>{
-            override fun onResponse(call: Call<ResponseType>, response: Response<ResponseType>){
-                if(response.isSuccessful){
-                    onSuccess.invoke(response.body()?:return)
-                }else{
+    ) {
+        this.enqueue(object : Callback<ResponseType> {
+            override fun onResponse(call: Call<ResponseType>, response: Response<ResponseType>) {
+                if (response.isSuccessful) {
+                    onSuccess.invoke(response.body() ?: return)
+                } else {
                     onError?.invoke(response.code())
                 }
             }
-            override fun onFailure(call: Call<ResponseType>, t:Throwable){
+
+            override fun onFailure(call: Call<ResponseType>, t: Throwable) {
                 Log.d("NetworkTest", "error:$t")
             }
         })
