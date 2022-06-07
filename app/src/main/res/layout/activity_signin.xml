@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="org.techtown.assignment.ui.login.viewmodel.SignInViewModel" />
+            type="org.techtown.assignment.ui.login.viewmodel.SignViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
