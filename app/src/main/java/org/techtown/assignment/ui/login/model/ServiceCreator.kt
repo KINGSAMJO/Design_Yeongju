@@ -1,4 +1,4 @@
-package org.techtown.assignment.model
+package org.techtown.assignment.ui.login.model
 
 import org.techtown.assignment.data.SoptService
 import retrofit2.Retrofit

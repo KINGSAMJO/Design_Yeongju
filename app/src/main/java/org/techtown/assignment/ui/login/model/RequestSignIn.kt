@@ -1,4 +1,4 @@
-package org.techtown.assignment.model
+package org.techtown.assignment.ui.login.model
 
 import com.google.gson.annotations.SerializedName
 

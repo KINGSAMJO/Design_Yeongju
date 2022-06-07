@@ -1,9 +1,9 @@
 package org.techtown.assignment.data
 
-import org.techtown.assignment.model.RequestSignIn
-import org.techtown.assignment.model.RequestSignUp
-import org.techtown.assignment.model.ResponseSignIn
-import org.techtown.assignment.model.ResponseSignUp
+import org.techtown.assignment.ui.login.model.RequestSignIn
+import org.techtown.assignment.ui.login.model.RequestSignUp
+import org.techtown.assignment.ui.login.model.ResponseSignIn
+import org.techtown.assignment.ui.login.model.ResponseSignUp
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST

@@ -1,4 +1,4 @@
-package org.techtown.assignment.ui.sign
+package org.techtown.assignment.ui.login
 
 import android.content.Context
 import android.content.Intent
@@ -7,8 +7,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import org.techtown.assignment.model.RequestSignIn
-import org.techtown.assignment.model.ServiceCreator
+import org.techtown.assignment.ui.login.model.RequestSignIn
+import org.techtown.assignment.ui.login.model.ServiceCreator
 import org.techtown.assignment.databinding.ActivitySigninBinding
 import org.techtown.assignment.ui.HomeActivity
 import retrofit2.Call

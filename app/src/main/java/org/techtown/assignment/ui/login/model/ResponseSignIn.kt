@@ -1,6 +1,6 @@
-package org.techtown.assignment.model
+package org.techtown.assignment.ui.login.model
 
-data class ResponseSignUp(
+data class ResponseSignIn(
     val status: Int,
     val message: String,
     val data: Data
