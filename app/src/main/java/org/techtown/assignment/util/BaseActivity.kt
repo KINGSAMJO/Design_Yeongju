@@ -14,10 +14,8 @@ abstract class BaseActivity<T : ViewDataBinding, VM: ViewModel>(@LayoutRes priva
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // 초기화된 layoutResId로 DataBinding 객체 생성
         binding = DataBindingUtil.setContentView(this, layoutRes)
         binding.apply{
-            // LiveData를 사용하기 위한 lifecycleOwner 지정
             binding.lifecycleOwner = this@BaseActivity
         }
         init()
