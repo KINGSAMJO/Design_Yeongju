@@ -9,8 +9,8 @@ import org.techtown.assignment.util.BaseActivity
 import org.techtown.assignment.util.showToast
 
 class SignUpActivity :
-    BaseActivity<ActivitySignupBinding, SignUpViewModel>(R.layout.activity_signup) {
-    override val viewModel: SignUpViewModel by viewModels()
+    BaseActivity<ActivitySignupBinding>(R.layout.activity_signup) {
+    val viewModel: SignUpViewModel by viewModels()
 
     override fun init() {
         binding.viewmodel = viewModel

@@ -11,8 +11,8 @@ import org.techtown.assignment.util.BaseActivity
 import org.techtown.assignment.util.showToast
 
 class SignInActivity :
-    BaseActivity<ActivitySigninBinding, SignInViewModel>(R.layout.activity_signin) {
-    override val viewModel: SignInViewModel by viewModels()
+    BaseActivity<ActivitySigninBinding>(R.layout.activity_signin) {
+    val viewModel: SignInViewModel by viewModels()
 
     private val resultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
