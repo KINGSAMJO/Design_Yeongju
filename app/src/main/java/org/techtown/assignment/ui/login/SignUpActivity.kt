@@ -19,16 +19,16 @@ class SignUpActivity :
         intent.putExtra("userId", binding.etJoinid.text.toString())
         intent.putExtra("userPwd", binding.etJoinpwd.text.toString())
 
-            emptyCheck = name.isEmpty() || id.isEmpty() || pwd.isEmpty()
-
-            if (!emptyCheck) {
-                joinNetwork()
+        viewModel.fillInfo.observe(this) {
+            if (!it) {
+                showToast("입력되지 않은 정보가 있습니다.")
+            }
+        }
+        viewModel.successJoin.observe(this) {
+            if (it) {
                 showToast("회원가입 완료!")
                 finish()
-            },
-            onError = {
-                showToast("회원가입에 실패하였습니다.")
-            }
-        )
+            } else showToast("중복된 아이디가 있습니다.")
+        }
     }
 }
