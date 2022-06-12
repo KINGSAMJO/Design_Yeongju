@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import org.techtown.assignment.R
 import org.techtown.assignment.databinding.ActivityHomeBinding
+import org.techtown.assignment.ui.camera.CameraFragment
+import org.techtown.assignment.ui.home.HomeFragment
 import org.techtown.assignment.ui.profile.ProfileFragment
 
 class HomeActivity : AppCompatActivity() {

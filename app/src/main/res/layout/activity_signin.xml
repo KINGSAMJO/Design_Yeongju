@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="org.techtown.assignment.ui.login.viewmodel.SignViewModel" />
+            type="org.techtown.assignment.ui.login.viewmodel.SignInViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -65,6 +65,7 @@
                     android:maxLines="1"
                     android:paddingVertical="13dp"
                     android:paddingStart="16dp"
+                    android:text="@={viewmodel.id}"
                     android:textCursorDrawable="@drawable/cursor"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +100,7 @@
                     android:maxLines="1"
                     android:paddingVertical="13dp"
                     android:paddingStart="16dp"
-                    android:text="@={viewmodel.userId}"
+                    android:text="@={viewmodel.pwd}"
                     android:textCursorDrawable="@drawable/cursor"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -115,6 +116,7 @@
                     android:backgroundTint="@color/sopt_main_purple"
                     android:fontFamily="@font/notosanskr_bold"
                     android:includeFontPadding="false"
+                    android:onClick="@{()->viewmodel.onClickButton()}"
                     android:paddingHorizontal="140dp"
                     android:paddingVertical="12dp"
                     android:text="@string/login"
